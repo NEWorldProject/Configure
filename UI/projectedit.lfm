@@ -1,0 +1,118 @@
+object ProjectEditor: TProjectEditor
+  Left = 1078
+  Height = 300
+  Top = 138
+  Width = 450
+  Caption = 'Project Editor'
+  ClientHeight = 300
+  ClientWidth = 450
+  LCLVersion = '2.0.8.0'
+  object LName: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 20
+    Height = 16
+    Top = 20
+    Width = 410
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 20
+    BorderSpacing.Right = 20
+    Caption = 'Name:'
+    ParentColor = False
+  end
+  object EName: TEdit
+    AnchorSideLeft.Control = LName
+    AnchorSideTop.Control = LName
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = LName
+    AnchorSideRight.Side = asrBottom
+    Left = 20
+    Height = 22
+    Top = 46
+    Width = 410
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Top = 10
+    TabOrder = 0
+  end
+  object LUri: TLabel
+    AnchorSideLeft.Control = EName
+    AnchorSideTop.Control = EName
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = EName
+    AnchorSideRight.Side = asrBottom
+    Left = 20
+    Height = 16
+    Top = 78
+    Width = 410
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Top = 10
+    Caption = 'Uri:'
+    ParentColor = False
+  end
+  object EUri: TEdit
+    AnchorSideLeft.Control = LUri
+    AnchorSideTop.Control = LUri
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = LUri
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Progression
+    Left = 20
+    Height = 136
+    Top = 104
+    Width = 410
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Top = 10
+    BorderSpacing.Bottom = 20
+    TabOrder = 1
+  end
+  object Progression: TProgressBar
+    AnchorSideLeft.Control = EUri
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = BCancel
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 20
+    Height = 20
+    Top = 260
+    Width = 220
+    Anchors = [akLeft, akRight, akBottom]
+    BorderSpacing.Right = 20
+    BorderSpacing.Bottom = 20
+    TabOrder = 2
+  end
+  object BCancel: TButton
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = BConfirm
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 260
+    Height = 25
+    Top = 255
+    Width = 80
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 10
+    BorderSpacing.Bottom = 20
+    Caption = 'Cancel'
+    OnClick = BCancelClick
+    TabOrder = 3
+  end
+  object BConfirm: TButton
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = EUri
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 350
+    Height = 25
+    Top = 255
+    Width = 80
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Bottom = 20
+    Caption = 'Confirm'
+    OnClick = BConfirmClick
+    TabOrder = 4
+  end
+end

@@ -1,0 +1,20 @@
+# FPC build file
+*.o
+*.or
+*.ppu
+*.log
+ppas.sh
+
+# Lazarus Workspace File
+*.lps
+
+# Lazarus Backup Directories
+backup/
+*/backup/
+
+# Lazarus Build Directories
+lib/
+
+# macOS App Bundle
+NWCfg
+NWCfg.app/

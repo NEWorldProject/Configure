@@ -1,0 +1,243 @@
+object MainForm: TMainForm
+  Left = 352
+  Height = 527
+  Top = 129
+  Width = 545
+  Caption = 'MainForm'
+  ClientHeight = 527
+  ClientWidth = 545
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object LHomeDir: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 20
+    Height = 25
+    Top = 20
+    Width = 99
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 20
+    Caption = 'Home Directory:'
+    Constraints.MinHeight = 25
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = 13
+    Font.Name = '.AppleSystemUIFont'
+    Layout = tlCenter
+    ParentColor = False
+    ParentFont = False
+  end
+  object EHomeDir: TDirectoryEdit
+    AnchorSideLeft.Control = LHomeDir
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 129
+    Height = 25
+    Top = 20
+    Width = 396
+    Directory = 'EHomeDir'
+    ShowHidden = False
+    ButtonWidth = 23
+    NumGlyphs = 1
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    BorderSpacing.Left = 10
+    BorderSpacing.Top = 20
+    BorderSpacing.Right = 20
+    MaxLength = 0
+    TabOrder = 0
+    OnEditingDone = EHomeDirEditingDone
+    Text = 'EHomeDir'
+  end
+  object Tables: TPageControl
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = LCMake
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 20
+    Height = 385
+    Top = 122
+    Width = 505
+    ActivePage = PProjects
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 20
+    BorderSpacing.Top = 10
+    BorderSpacing.Right = 20
+    BorderSpacing.Bottom = 20
+    TabIndex = 0
+    TabOrder = 1
+    object PProjects: TTabSheet
+      Caption = 'Projects'
+      ClientHeight = 355
+      ClientWidth = 499
+      object TProjects: TDrawGrid
+        AnchorSideLeft.Control = PProjects
+        AnchorSideTop.Control = PProjects
+        AnchorSideRight.Control = PProjects
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PProjects
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 355
+        Top = 0
+        Width = 499
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        ColCount = 4
+        Columns = <        
+          item
+            ReadOnly = True
+            Title.Caption = 'Name'
+            Width = 60
+          end        
+          item
+            ReadOnly = True
+            Title.Caption = 'Status'
+            Width = 60
+          end        
+          item
+            ReadOnly = True
+            Title.Caption = 'Last Update'
+            Width = 180
+          end        
+          item
+            ReadOnly = True
+            Title.Caption = 'Uri'
+            Width = 180
+          end>
+        ExtendedSelect = False
+        FixedCols = 0
+        Flat = True
+        TabOrder = 0
+        OnClick = TProjectsClick
+        ColWidths = (
+          60
+          60
+          180
+          180
+        )
+      end
+    end
+    object PRepo: TTabSheet
+      Caption = 'Repositories'
+      ClientHeight = 355
+      ClientWidth = 499
+      object TRepos: TDrawGrid
+        AnchorSideLeft.Control = PProjects
+        AnchorSideTop.Control = PProjects
+        AnchorSideRight.Control = PProjects
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PProjects
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 355
+        Top = 0
+        Width = 508
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        ColCount = 4
+        Columns = <        
+          item
+            Title.Caption = 'Title'
+          end        
+          item
+            Title.Caption = 'Title'
+          end        
+          item
+            Title.Caption = 'Title'
+          end        
+          item
+            Title.Caption = 'Title'
+          end>
+        ExtendedSelect = False
+        FixedCols = 0
+        Flat = True
+        TabOrder = 0
+      end
+    end
+  end
+  object EGit: TFileNameEdit
+    AnchorSideLeft.Control = LGit
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = LGit
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 82
+    Height = 22
+    Top = 55
+    Width = 443
+    FileName = 'EGit'
+    FilterIndex = 0
+    HideDirectories = False
+    ButtonWidth = 23
+    NumGlyphs = 1
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 10
+    BorderSpacing.Right = 20
+    MaxLength = 0
+    TabOrder = 2
+    OnEditingDone = EGitEditingDone
+    Text = 'EGit'
+  end
+  object ECMake: TFileNameEdit
+    AnchorSideLeft.Control = LCMake
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = LCMake
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 106
+    Height = 22
+    Top = 87
+    Width = 419
+    FileName = 'ECMake'
+    FilterIndex = 0
+    HideDirectories = False
+    ButtonWidth = 23
+    NumGlyphs = 1
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 10
+    BorderSpacing.Right = 20
+    MaxLength = 0
+    TabOrder = 3
+    OnEditingDone = ECMakeEditingDone
+    Text = 'ECMake'
+  end
+  object LGit: TLabel
+    AnchorSideLeft.Control = LHomeDir
+    AnchorSideTop.Control = LHomeDir
+    AnchorSideTop.Side = asrBottom
+    Left = 20
+    Height = 25
+    Top = 55
+    Width = 52
+    BorderSpacing.Top = 10
+    Caption = 'Git Path:'
+    Constraints.MinHeight = 25
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = 13
+    Font.Name = '.AppleSystemUIFont'
+    Layout = tlCenter
+    ParentColor = False
+    ParentFont = False
+  end
+  object LCMake: TLabel
+    AnchorSideLeft.Control = LHomeDir
+    AnchorSideTop.Control = EGit
+    AnchorSideTop.Side = asrBottom
+    Left = 20
+    Height = 25
+    Top = 87
+    Width = 76
+    BorderSpacing.Top = 10
+    Caption = 'CMake Path:'
+    Constraints.MinHeight = 25
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = 13
+    Font.Name = '.AppleSystemUIFont'
+    Layout = tlCenter
+    ParentColor = False
+    ParentFont = False
+  end
+end
